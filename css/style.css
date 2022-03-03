@@ -1,0 +1,733 @@
+:root {
+    --underperforming: #CC3430;
+    --both: #575757;
+    --wellperforming: #00784c;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+}
+
+#header {
+    width: 448px;
+    height: 56px;
+    position: relative;
+    background-color: #FFE6C8;
+    text-align: left;
+    line-height: 40px;
+}
+
+#selection {
+    width: 448px;
+    height: 692px;
+    background-color: #FFE6C820;
+    display: inline-block;
+    border-bottom: 1px solid #ECEDDC;
+}
+
+#neurons {
+    width: 758px;
+    height: 748px;
+    border: 1px solid #ECEDDC;
+    display: inline-block;
+    position: absolute;
+    left: 448px;
+    top: 0px;
+    border-left-width: 0px;
+    border-top-width: 0px;
+}
+
+
+#neuron-path {
+    height: 723px;
+}
+
+
+
+/* header */
+
+#header-icon {
+    width: 56px;
+    height: 56px;
+    position: relative;
+    display: inline-block;
+}
+
+#header-icon img {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+}
+
+#header-title {
+    height: 56px;
+    position: relative;
+    top: 2px;
+    display: inline-block;
+    font-weight: bold;
+    line-height: 56px;
+    vertical-align: top;
+}
+
+#header-title-v, #header-title-cuit {
+    display: inline-block;
+    font-size: 30px;
+    color: #202020;
+}
+
+#header-title-is {
+    display: inline-block;
+    font-size: 20px;
+}
+
+#setting-panel {
+    height: 56px;
+    width: 759px;
+    background-color: #FFE6C8;
+}
+
+#biased-subgroups {
+    width: 447px;
+    height: 418px;
+    border-bottom: 1px solid #ECEDDC;
+}
+
+#similar-unbiased-subgroup {
+    width: 447px;
+    border-bottom: 1px solid #ECEDDC;
+}
+
+.info {
+    display: inline-block;
+    position: absolute;
+    font-family: "Roboto Condensed", sans-serif;
+    padding: 9.25px 0 0 11px;
+    color: #404040;
+}
+
+.setting-title {
+    font-weight: bold;
+}
+
+.setting-content {
+    color: #808080;
+}
+
+#model-info {
+    left: 0;
+}
+
+#dataset-info {
+    left: 180px;
+}
+
+#accuracy-info {
+    left: 360px;
+}
+
+#setting-threshold {
+    left: 540px;
+}
+
+#setting-threshold-title-text {
+    padding-right: 8px;
+    display: inline-block;
+}
+
+.setting-title #setting-threshold-value {
+    display: inline-block;
+    font-weight: 400;
+}
+
+#setting-threshold-slider-min-value,
+#setting-threshold-slider-max-value {
+    display: inline-block;
+}
+
+#setting-threshold-slider-frame {
+    position: relative;
+    height: 19px;
+    width: 200px;
+}
+
+#setting-threshold-slider {
+    position: relative;
+    -webkit-appearance: none;
+    height: 5px;
+    width: 120px;
+    background: #C4C4C4;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    top: -3px;
+    margin: 0 5px;
+}
+
+#setting-threshold-slider:hover {
+    opacity: 1;
+}
+
+#setting-threshold-slider::-webkit-slider-thumb,
+#setting-threshold-slider::-moz-range-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    background-color: #808080;
+    background: #808080;
+    cursor: pointer;
+}
+
+
+
+/* main */
+
+/* biased subgroups */
+#subgroup-info-summary {
+    height: 160px;
+}
+
+#biased-subgroups-title,
+#similar-unbiased-subgroup-title,
+#subgroup-info-summary-title {
+    font-weight: bold;
+    font-size: 20px;
+    padding-left: 12px;
+    padding-top: 9px;
+    margin-bottom: 5px;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+#biased-subgroups-title {
+    color: var(--underperforming);
+    display: inline-block;
+}
+
+#biased-subgroups-title-by-accuracy {
+    display: inline-block;
+    font-weight: normal;
+    font-size: 14px;
+    color: #a0a0a0;
+    padding-left: 10px;
+    position: relative;
+    top: -2px;
+}
+
+#similar-unbiased-subgroup-title {
+    color: var(--wellperforming);
+}
+
+#biased-subgroups-list {
+    height: 367px;
+    overflow-y: hidden;
+}
+
+#biased-subgroups-list:hover {
+    overflow-y: auto;
+}
+
+.subgroup-entry {
+    position: relative;
+    height: 60px;
+    align-items: center;
+    cursor: pointer;
+    border-left: 7px solid #00000000;
+    padding: 0.5px 0;
+}
+
+.subgroup-entry:first-child {
+    padding-top: 0.5px;
+}
+
+.subgroup-entry-info {
+    vertical-align: middle;
+    display: inline-block;
+    margin: 0;
+    padding-right: 5px;
+    position: relative;
+    top: -26px;
+    width: 50px;
+}
+
+.subgroup-entry-id-number {
+    font-size: 12px;
+    color: white;
+    position: absolute;
+    left: 57px;
+    top: 4px;
+    text-shadow: 0 0 2px #202020, 0 0 2px #202020, 0 0 2px #202020, 0 0 2px #202020;
+}
+
+.subgroup-entry-accuracy-title,
+.subgroup-entry-accuracy-value  {
+    font-weight: bold;
+    font-size: 16px;
+    text-align: right;
+    color: #909090;
+}
+
+#similar-unbiased-subgroup-entry-info .subgroup-entry-accuracy-value {
+    color: #202020;
+}
+
+.subgroup-entry-images {
+    width: 360px;
+    height: 55px;
+    padding-top: 2.5px;
+    padding-bottom: 2.5px;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    white-space: nowrap;
+    display: inline-block;
+}
+
+.subgroup-entry-images:hover {
+    overflow-x: auto;
+}
+
+.subgroup-entry-image-display {
+    display: inline-block;
+    position: relative;
+    margin-top: auto;
+    margin-bottom: auto;
+    align-items: center;
+    height: 55px;
+    width: 45px;
+    cursor: pointer;
+}
+
+
+
+/* selected subgroup */
+.subgroup-entry#similar-unbiased-subgroup-entry {
+    cursor: auto;
+}
+
+#similar-unbiased-subgroups-list {
+    padding-right: 9px;
+    margin-bottom: 9px;
+    margin-top: -1px;
+    height: 61px;
+    overflow-x: hidden;
+}
+
+.subgroup-entry-info#similar-unbiased-subgroup-entry-info {
+    color: black;
+}
+
+.gradcam-window {
+    width: 200px;
+    height: 160px;
+    background-color: white;
+    border: 2px solid #ECEDDC;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    padding-top: 5px;
+}
+
+.gradcam-window-image-covering {
+    height: 55px;
+    width: 45px;
+    background-color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 40%;
+}
+
+.gradcam-window-group-number {
+    color: #808080;
+    font-size: 12px;
+    font-style: italic;
+    width: 100%;
+    text-align: left;
+    padding-left: 9px;
+    padding-bottom: 5px;
+}
+
+#selected-image-clicked-original-image,
+#selected-image-clicked-gradcam-image {
+    display: inline-block;
+    padding: 0px 7px 0px 7px;
+}
+
+
+#selected-image-clicked-original-image-title,
+#selected-image-clicked-gradcam-image-title {
+    font-size: 13px;
+    text-align: center;
+    padding-top: 4px;
+    padding-bottom: 5px;
+}
+
+#selected-image-clicked-ground-truth, #selected-image-clicked-pred {
+    color: #808080;
+    font-size: 12px;
+    text-align: left;
+    padding-left: 9px;
+}
+
+#selected-image-clicked-ground-truth-title, #selected-image-clicked-pred-title {
+    display: inline-block;
+    font-weight: bold;
+    width: 80px;
+    vertical-align: middle;
+}
+
+#selected-image-clicked-ground-truth-value, #selected-image-clicked-pred-value {
+    display: inline-block;
+    width: 70px;
+    vertical-align: middle;
+}
+
+
+
+/* subgroup info summary */
+
+#subgroup-info-summary-title {
+    color: #404040;
+}
+
+.subgroup-info-summary-entry {
+    width: 49.5%;
+    display: inline-block;
+    align-items: center;
+    margin: 0 auto 3px auto;
+    padding: 2px 0 3px 0;
+}
+
+#subgroup-info-summary-underperforming {
+    border-right: 1px solid #ECEDDC;
+    margin: 0 auto 3px 0;
+}
+
+#subgroup-info-summary-well-performing {
+    margin: 0 0 3px auto;
+}
+
+#confusion-matrix-underperforming-subgroup-title,
+#confusion-matrix-well-performing-subgroup-title {
+    font-family: 'Roboto Condensed', sans-serif;
+    text-align: left;
+    width: 100%;
+    font-size: 14px;
+}
+
+#confusion-matrix-underperforming-subgroup-title {
+    color: var(--underperforming)
+}
+
+#confusion-matrix-well-performing-subgroup-title {
+    color: var(--wellperforming);
+}
+
+.confusion-matrix-title-upper {
+    font-weight: bold;
+}
+
+.confusion-matrix-title-lower {
+    font-weight: normal;
+}
+
+#confusion-matrix-underperforming-subgroup-title-lower,
+#confusion-matrix-well-performing-subgroup-title-lower {
+    font-size: 11px;
+}
+
+.confusion-matrix {
+    text-align: center;
+    vertical-align: middle;
+    color: #404040;
+    border-collapse: collapse;
+}
+
+#confusion-matrix-well-performing,
+#confusion-matrix-underperforming {
+    margin: 0px auto;
+}
+
+th {
+    padding: 0;
+}
+
+.confusion-matrix-ground-truth,
+.confusion-matrix-predicted {
+    font-weight: bold;
+    font-size: 13px;
+}
+
+td.confusion-matrix-predicted {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    width: 19px;
+}
+
+.confusion-matrix-label {
+    font-weight: normal;
+    font-family: "Roboto Condensed", sans-serif;
+    font-size: 11px;
+    height: 17px;
+}
+
+.confusion-matrix-title {
+    text-align: left;
+    vertical-align: top;
+}
+
+td {
+    width: 50px;
+    height: 36px;
+    vertical-align: middle;
+}
+
+td.confusion-matrix-1-1 {
+    border-top: #ECEDDC 2px solid;
+    border-right: #ECEDDC 1px solid;
+    border-bottom: #ECEDDC 1px solid;
+    border-left: #ECEDDC 2px solid;
+    border-collapse: 404040;
+}
+
+td.confusion-matrix-1-2 {
+    border-top: #ECEDDC 2px solid;
+    border-right: #ECEDDC 2px solid;
+    border-bottom: #ECEDDC 1px solid;
+    border-left: #ECEDDC 1px solid;
+    border-collapse: collapse;
+}
+
+td.confusion-matrix-2-1 {
+    border-top: #ECEDDC 1px solid;
+    border-right: #ECEDDC 1px solid;
+    border-bottom: #ECEDDC 2px solid;
+    border-left: #ECEDDC 2px solid;
+    border-collapse: collapse;
+}
+
+td.confusion-matrix-2-2 {
+    border-top: #ECEDDC 1px solid;
+    border-right: #ECEDDC 2px solid;
+    border-bottom: #ECEDDC 2px solid;
+    border-left: #ECEDDC 1px solid;
+    border-collapse: collapse;
+}
+
+
+
+/* Neuron Path */
+#neuron-path-header {
+    height: 40px;
+    font-size: 14px;
+    text-align: center;
+    vertical-align: center;
+    position: relative;
+    padding-top: 17px;
+    padding-bottom: 5px;
+}
+
+#neuron-path-header-title {
+    height: 40px;
+    width: 40px;
+    line-height: 40px;
+    display: inline-block;
+    position: absolute;
+    left: 20px;
+}
+
+#neuron-path-header-biased,
+#neuron-path-header-both,
+#neuron-path-header-unbiased {
+    height: 36px;
+    width: 232px;
+    vertical-align: middle;
+    display: inline-block;
+    position: absolute;
+    font-size: 16px;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+#neuron-path-header-biased {
+    left: 61px;
+    line-height: 18px;
+    color: var(--underperforming);
+}
+
+#neuron-path-header-both {
+    left: 293px;
+    line-height: 36px;
+    color: var(--both);
+}
+
+#neuron-path-header-unbiased {
+    left: 525px;
+    line-height: 18px;
+    color: var(--wellperforming);
+}
+
+#neuron-path-header-biased-upper,
+#neuron-path-header-unbiased-upper,
+#neuron-path-header-both {
+    font-weight: bold;
+}
+
+.neurons-each-layer {
+    height: 38px; 
+    width: 736px;
+    margin: 1px 4px;
+    position: flex;
+}
+
+.neuron-path-layer-name,
+.neuron-path-biased-neurons,
+.neuron-path-both-neurons,
+.neuron-path-unbiased-neurons {
+    height: 38px;
+    display: inline-block;
+    position: relative;
+    top: 0;
+    line-height: 38px;
+    text-align: center;
+    vertical-align: middle;
+    color: #404040;
+    font-size: 15px;
+}
+
+.neuron-path-layer-name {
+    width: 40px;
+    left: 15px;
+    font-family: "Roboto Condensed", sans-serif;
+}
+
+.neuron-path-biased-neurons,
+.neuron-path-both-neurons,
+.neuron-path-unbiased-neurons {
+    width: 232px;
+    left: 20px;
+}
+
+.neuron-frame-svg, .neurons-svg {
+    width: 232px;
+    height: 40px;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.neuron-circle {
+    cursor: pointer;
+}
+
+.neurons-display {
+    position: absolute;
+    height: 28px;
+    top: 16px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+
+.neurons-display:hover {
+    overflow-x: auto;
+}
+
+/* Neuron Concept Window */
+.neuron-concept-window {
+    width: 170px;
+    height: 150px;
+    background-color: white;
+    border: 2px solid #ECEDDC;
+    padding: 5px 7px 5px 7px;
+    position: relative;
+}
+
+.neuron-concept-title {
+    color: #808080;
+    font-size: 13px;
+    font-style: italic;
+    margin-top: 1px;
+}
+
+.neuron-concept-importance-score {
+    position: relative;
+    margin: 3px 0 3px 0;
+}
+
+.neuron-concept-importance-score-title,
+.neuron-concept-patches-title {
+    color: #808080;
+    font-size: 13px;
+    padding-bottom: 1px;
+    padding-top: 2px;
+}
+
+.neuron-concept-importance-score-biased,
+.neuron-concept-importance-score-unbiased {
+    height: 12px;
+    line-height: 12px;
+}
+
+
+.neuron-concept-importance-score-biased-title,
+.neuron-concept-importance-score-unbiased-title {
+    color: #808080;
+    font-size: 12px;
+    display: inline-block;
+    height: 12px;
+    line-height: 12px;
+    width: 165x;
+    padding-right: 5px;
+}
+
+.neuron-concept-importance-score-biased-value,
+.neuron-concept-importance-score-unbiased-value {
+    color: #808080;
+    font-size: 12px;
+    display: inline-block;
+    height: 12px;
+    line-height: 12px;
+}
+
+.neuron-concept-importance-score-title,
+.neuron-concept-patches-title {
+    font-weight: bold;
+    padding-right: 6px;
+}
+
+.neuron-concept-patch-image {
+    border: 1px solid #ECEDDC00;
+    margin: -1px 0px;
+}
+
+.neuron-concept-window-x {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: white;
+    cursor: pointer;
+}
+
+.gradcam-window-x {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    background-color: white;
+    cursor: pointer;
+}
+
+.neuron-concept-window-x-line,
+.gradcam-window-x-line {
+    stroke: #808080;
+    stroke-width: 2;
+    opacity: 50%;
+}
