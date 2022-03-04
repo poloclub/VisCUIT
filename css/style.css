@@ -20,18 +20,19 @@ body {
 
 #selection {
     width: 448px;
-    height: 692px;
+    /* height: 692px; */
+    height: 100%;
     background-color: #FFE6C820;
     display: inline-block;
-    border-bottom: 1px solid #ECEDDC;
+    /* border-bottom: 1px solid #ECEDDC; */
 }
 
 #neurons {
     width: 758px;
     height: 748px;
-    border: 1px solid #ECEDDC;
+    /* border: 1px solid #ECEDDC; */
     display: inline-block;
-    position: absolute;
+    /* position: absolute; */
     left: 448px;
     top: 0px;
     border-left-width: 0px;
@@ -88,6 +89,8 @@ body {
     height: 56px;
     width: 759px;
     background-color: #FFE6C8;
+    display: flex;
+    justify-content: space-between;
 }
 
 #biased-subgroups {
@@ -103,7 +106,7 @@ body {
 
 .info {
     display: inline-block;
-    position: absolute;
+    /* position: absolute; */
     font-family: "Roboto Condensed", sans-serif;
     padding: 9.25px 0 0 11px;
     color: #404040;
@@ -183,9 +186,62 @@ body {
     cursor: pointer;
 }
 
+.page {
+    width: 100vw;
+    /* height: 100vh; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
+    background-color: #FFFDFB;
+    opacity: 0.8;
+    background-image:  radial-gradient(#f3b667 1.1px, transparent 1.1px), radial-gradient(#f3b667 1.1px, #FFFDFB 1.1px);
+    background-size: 44px 44px;
+    background-position: 0 0,22px 22px;
+}
 
-/* main */
+.tool {
+    background-color: white;
+    margin-top: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0px 0px 5px hsla(0, 0%, 0%, 0.1),
+        0px 0px 12px hsla(0, 0%, 0%, 0.05);
+    border: 1px solid hsla(0, 0%, 0%, 0.1);
+    border-radius: 10px;
+    display: flex;
+    height: 780px;
+    overflow: hidden;
+}
+
+#main {
+    display: flex;
+}
+
+.description {
+    background-color: hsla(30, 100%, 99.2%, 0.7);
+    padding: 0px 30px 50px 30px;
+    width: 78ch;
+    color: hsl(0, 0%, 25.3%);
+    font-size: 17px;
+    line-height: 1.6;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
+
+.description h2 {
+    margin-top: 0px;
+    color: hsl(0, 0%, 16.7%);
+    font-size: 40px;
+    font-weight: 450;
+    margin-bottom: 12px;
+    border-bottom: 1px solid hsl(216, 13.5%, 92.7%);
+}
+
+.description a {
+    color: hsl(33.2, 39.5%, 53.3%);
+    cursor: pointer;
+    text-decoration: none;
+}
 
 /* biased subgroups */
 #subgroup-info-summary {
@@ -577,7 +633,7 @@ td.confusion-matrix-2-2 {
 }
 
 .neurons-each-layer {
-    height: 38px; 
+    height: 38px;
     width: 736px;
     margin: 1px 4px;
     position: flex;
