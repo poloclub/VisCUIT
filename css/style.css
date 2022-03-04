@@ -32,8 +32,8 @@ body {
     height: 748px;
     /* border: 1px solid #ECEDDC; */
     display: inline-block;
-    /* position: absolute; */
-    left: 448px;
+    /* position: relative; */
+    /* left: 448px; */
     top: 0px;
     border-left-width: 0px;
     border-top-width: 0px;
@@ -519,8 +519,8 @@ th {
 }
 
 td.confusion-matrix-predicted {
-    writing-mode: vertical-rl;
-    transform: rotate(180deg);
+    /* writing-mode: vertical-rl; */
+    transform: rotate(270deg);
     width: 19px;
 }
 
