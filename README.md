@@ -9,7 +9,7 @@
 
 ## Live Demo
 
-For a live demo, visit: <http://poloclub.github.io/viscuit/>
+For a live demo, visit: <https://poloclub.github.io/viscuit/>
 
 ## Running Locally
 
