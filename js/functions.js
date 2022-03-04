@@ -21,7 +21,7 @@ export const biasedSubgroupEntryClicked = (e) => {
     similarUnbiasedSubgroupEntryDiv.innerHTML = "";
     subgroupInfoSummaryUnderperformingDiv.innerHTML = "";
     subgroupInfoSummaryWellPerformingDiv.innerHTML = "";
-    
+
     clicked = true;
     previousClickedId = clickedId;
 
@@ -242,7 +242,7 @@ function displaySimilarUnbiasedSubgroup(similarUnbiasedSubgroupInfo, similarUnbi
             similarUnbiasedEntryImageDisplayImg.setAttribute("src", "./assets/data/img/"+imgFileName);
             similarUnbiasedEntryImageDisplayImg.setAttribute("height", "55px");
             similarUnbiasedEntryImageDisplayImg.setAttribute("id", "unbiased-subgroup-entry-image-"+String(imgNumber));
-            if (similarUnbiasedSubgroupInfo["incorrect_list"].includes(imgFileName)) 
+            if (similarUnbiasedSubgroupInfo["incorrect_list"].includes(imgFileName))
                 similarUnbiasedSubgroupEntryImageDisplayDiv.setAttribute("class", "subgroup-entry-image-incorrect subgroup-entry-image-display");
 
             similarUnbiasedSubgroupEntryImageDisplayDiv.addEventListener("click", e => imageClicked(e, imgFileName, groundTruth, pred, false, similarUnbiasedSubgroupNewIdNumber));
@@ -253,10 +253,10 @@ function displaySimilarUnbiasedSubgroup(similarUnbiasedSubgroupInfo, similarUnbi
 
     let incorrectMarkerTranslateX = 38;
     let incorrectMarkerTranslateY = 48;
-    
+
     let similarUnbiasedSubgroupSvg = d3.selectAll("#similar-unbiased-subgroup-entry .subgroup-entry-image-incorrect")
-    
-    similarUnbiasedSubgroupSvg        
+
+    similarUnbiasedSubgroupSvg
         .append("svg")
             .attr("class", "subgroup-entry-image-incorrect-svg")
             .attr("width", "45px")
@@ -319,7 +319,7 @@ export function removeGradcamWindows (e) {
             if (clickedId == subgroupId) removeGradcamWindowsBiasedOrUnbiased(true);
         }
     }
-    else if (currentTargetClassNames.includes("unbiased-element")) 
+    else if (currentTargetClassNames.includes("unbiased-element"))
         removeGradcamWindowsBiasedOrUnbiased(false);
 }
 
@@ -612,11 +612,11 @@ function displayImportantNeurons(neuronIndices, importanceScores, domId, column,
     if (column == "biased") color = UNDERPERFORMING_COLOR;
     else if (column == "both") color = BOTH_COLOR;
     else if (column == "unbiased") color = WELLPERFORMING_COLOR;
-    
+
     let neuronNumber = neuronIndices.length;
     let width = 15*neuronNumber+5;
     let height = 22;
-    let svgFrameWidth = 232, svgFrameHeight = 38; 
+    let svgFrameWidth = 232, svgFrameHeight = 38;
 
     let neuronFrameG = neuronsDiv
         .append("svg")
@@ -703,7 +703,7 @@ function neuronNodeHovered(e, color) {
 function neuronNodeMouseLeave(e, color) {
     let classes = e.currentTarget.className.baseVal.split(" ");
     let neuronClusterClass = classes[classes.length - 1];
-    
+
     d3.selectAll(".neuron-circle")
         .style("opacity", "1.0");
 
@@ -718,7 +718,7 @@ function neuronNodeMouseLeave(e, color) {
         .style("stroke-opacity", 0)
         .style("stroke", "")
         .style("stroke-width", "");
-    
+
     e.currentTarget.style.fill = color;
     e.currentTarget.style["stroke-opacity"] = 0;
     e.currentTarget.style.stroke = "";
@@ -755,13 +755,13 @@ function displayNeuronConcept(e, layer, neuronId, importanceScores) {
 
             let neuronsDiv = document.getElementById("neurons");
             let neuronsDivStyle = getComputedStyle(neuronsDiv);
-            
+
             neuronConceptWindow = document.createElement("div");
             neuronConceptWindow.setAttribute("class", "neuron-concept-window neuron-concept-window-"+layer);
             neuronConceptWindow.setAttribute("id", "neuron-concept-window-"+layer+"-"+String(neuronId))
             neuronConceptWindow.style.position = "absolute";
             neuronConceptWindow.style.top = String(cursorY-Number(neuronsDivStyle["top"].replace("px",""))) + "px";
-            neuronConceptWindow.style.left = String(cursorX-Number(neuronsDivStyle["left"].replace("px",""))) + "px";
+            neuronConceptWindow.style.left = String(cursorX) + "px";
             neuronsDiv.appendChild(neuronConceptWindow);
 
             windowStack.push(["neuron-concept-window-"+layer+"-"+String(neuronId)]);
@@ -837,7 +837,7 @@ function displayNeuronConcept(e, layer, neuronId, importanceScores) {
 
                 if (idx < 5) neuronConceptPatchesImagesUpperDiv.appendChild(neuronConceptPatchImg);
                 else neuronConceptPatchesImagesLowerDiv.appendChild(neuronConceptPatchImg);
-            }) 
+            })
 
             // make X box to remove the window
             let neuronConceptWindowXDiv = document.createElement("div");
