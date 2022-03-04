@@ -2,7 +2,7 @@
 
 <!-- An interactive visualization system designed to help non-experts learn about Convolutional Neural Networks (CNNs) -->
 
-[![build](https://github.com/poloclub/cnn-explainer/workflows/build/badge.svg)](https://github.com/poloclub/viscuit/actions)
+<!-- [![build](https://github.com/poloclub/cnn-explainer/workflows/build/badge.svg)](https://github.com/poloclub/viscuit/actions) -->
 [![license](https://img.shields.io/badge/license-MIT-blue)](https://github.com/poloclub/viscuit/blob/master/LICENSE)
 <!-- [![arxiv badge](https://img.shields.io/badge/arXiv-2004.15004-red)](http://arxiv.org/abs/2004.15004)
 [![DOI:10.1109/TVCG.2020.3030418](https://img.shields.io/badge/DOI-10.1109/TVCG.2020.3030418-blue)](https://doi.org/10.1109/TVCG.2020.3030418) -->
