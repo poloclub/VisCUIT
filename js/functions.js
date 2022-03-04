@@ -468,7 +468,7 @@ document.addEventListener("keyup", removeWindow);
 export function displayNeuronPath(selectedBiasedSubgroupInfo, similarUnbiasedSubgroupInfo, newIdNumber) {
     let neuronPathDiv = document.getElementById("neuron-path");
     neuronPathDiv.innerHTML = '';
-    windowStack = [];
+    windowStack = windowStack.filter(d => d.length > 1);
 
     let neuronPathHeaderDiv = document.createElement("div");
     neuronPathHeaderDiv.setAttribute("id", "neuron-path-header");
