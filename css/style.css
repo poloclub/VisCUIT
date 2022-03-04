@@ -10,12 +10,25 @@ body {
 }
 
 #header {
-    width: 448px;
+    /* width: 448px; */
     height: 56px;
     position: relative;
     background-color: #FFE6C8;
     text-align: left;
     line-height: 40px;
+}
+
+.header-container {
+    background-color: #FFE6C8;
+    display: flex;
+    align-items: center;
+}
+
+.header-container span {
+    font-family: "Roboto Condensed", sans-serif;
+    margin-top: 12px;
+    margin-left: 12px;
+    color: hsla(0, 0%, 50%);
 }
 
 #selection {
@@ -87,10 +100,30 @@ body {
 
 #setting-panel {
     height: 56px;
-    width: 759px;
     background-color: #FFE6C8;
     display: flex;
     justify-content: space-between;
+}
+
+#setting-panel-left {
+    padding-left: 30px;
+    display: flex;
+    gap: 45px;
+}
+
+#icon-container {
+    display: flex;
+    margin-right: 20px;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    gap: 18px;
+}
+
+#icon-container img {
+    width: 28px;
+    height: 28px;
+    color: #666666;
 }
 
 #biased-subgroups {

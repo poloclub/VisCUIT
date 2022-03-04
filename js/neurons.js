@@ -2,8 +2,11 @@ import { displayNeuronPath } from "./functions.js"
 
 let neuronsDiv = document.getElementById("neurons");
 let settingPanelDiv = document.createElement("div");
-let neuronPathDiv = document.createElement("div");
 settingPanelDiv.setAttribute("id", "setting-panel");
+let settingPanelLeft = document.createElement("div");
+settingPanelLeft.setAttribute("id", 'setting-panel-left');
+settingPanelDiv.appendChild(settingPanelLeft);
+let neuronPathDiv = document.createElement("div");
 neuronPathDiv.setAttribute("id", "neuron-path");
 neuronsDiv.appendChild(settingPanelDiv);
 neuronsDiv.appendChild(neuronPathDiv);
@@ -11,7 +14,7 @@ neuronsDiv.appendChild(neuronPathDiv);
 let modelInfoDiv = document.createElement("div");
 modelInfoDiv.setAttribute("id", "model-info");
 modelInfoDiv.setAttribute("class", "info");
-settingPanelDiv.appendChild(modelInfoDiv);
+settingPanelLeft.appendChild(modelInfoDiv);
 let modelInfoTitleDiv = document.createElement("div");
 let modelInfoContentDiv = document.createElement("div");
 modelInfoTitleDiv.setAttribute("id", "model-info-title");
@@ -26,7 +29,7 @@ modelInfoDiv.appendChild(modelInfoContentDiv);
 let datasetInfoDiv = document.createElement("div");
 datasetInfoDiv.setAttribute("id", "dataset-info");
 datasetInfoDiv.setAttribute("class", "info");
-settingPanelDiv.appendChild(datasetInfoDiv);
+settingPanelLeft.appendChild(datasetInfoDiv);
 let datasetInfoTitleDiv = document.createElement("div");
 let datasetInfoContentDiv = document.createElement("div");
 datasetInfoTitleDiv.setAttribute("id", "dataset-info-title");
@@ -41,7 +44,7 @@ datasetInfoDiv.appendChild(datasetInfoContentDiv);
 let accuracyInfoDiv = document.createElement("div");
 accuracyInfoDiv.setAttribute("id", "accuracy-info");
 accuracyInfoDiv.setAttribute("class", "info");
-settingPanelDiv.appendChild(accuracyInfoDiv);
+settingPanelLeft.appendChild(accuracyInfoDiv);
 let accuracyInfoTitleDiv = document.createElement("div");
 let accuracyInfoContentDiv = document.createElement("div");
 accuracyInfoTitleDiv.setAttribute("id", "accuracy-info-title");
@@ -56,7 +59,7 @@ accuracyInfoDiv.appendChild(accuracyInfoContentDiv);
 let settingThresholdDiv = document.createElement("div");
 settingThresholdDiv.setAttribute("id", "setting-threshold");
 settingThresholdDiv.setAttribute("class", "info");
-settingPanelDiv.appendChild(settingThresholdDiv);
+settingPanelLeft.appendChild(settingThresholdDiv);
 let settingThresholdHeaderDiv = document.createElement("div");
 let settingThresholdSliderDiv = document.createElement("div");
 settingThresholdHeaderDiv.setAttribute("id", "setting-threshold-title");
@@ -90,6 +93,24 @@ settingThresholdTitleDiv.setAttribute("id", "setting-threshold-title-text");
 settingThresholdValueDiv.setAttribute("id", "setting-threshold-value");
 settingThresholdHeaderDiv.appendChild(settingThresholdTitleDiv);
 
+let iconDiv = document.createElement("div");
+iconDiv.setAttribute('id', 'icon-container');
+settingPanelDiv.appendChild(iconDiv);
+
+let linkContainer = document.createElement("a");
+linkContainer.setAttribute("href", "https://github.com/poloclub/VisCUIT");
+let headerIconImg = document.createElement("img");
+headerIconImg.setAttribute("src", "assets/logo/github-brands.svg");
+linkContainer.appendChild(headerIconImg);
+iconDiv.appendChild(linkContainer);
+
+linkContainer = document.createElement("a");
+linkContainer.setAttribute("href", "https://github.com/poloclub/VisCUIT");
+headerIconImg = document.createElement("img");
+headerIconImg.setAttribute("src", "assets/logo/youtube-brands.svg");
+linkContainer.appendChild(headerIconImg);
+iconDiv.appendChild(linkContainer);
+
 settingThresholdSliderInput.addEventListener("input", (e) => {
     settingThresholdValueDiv.innerText = String(settingThresholdSliderInput.value/10);
     let neuronPathDiv = document.getElementById("neuron-path");
@@ -108,7 +129,7 @@ settingThresholdSliderInput.addEventListener("input", (e) => {
 
         let selectedBiasedSubgroupDiv = document.getElementsByClassName("selected-biased-subgroup")[0];
         let similarUnbiasedSubgroupDiv = document.getElementById("similar-unbiased-subgroup")
-        
+
         let selectedBiasedSubgroupInfo = selectedBiasedSubgroupDiv.biasedSubgroupInfo;
         let similarUnbiasedSubgroupInfo = similarUnbiasedSubgroupDiv.unbiasedSubgroupInfo;
         let newIdNumber = similarUnbiasedSubgroupDiv.newIdNumber;
