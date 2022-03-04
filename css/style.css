@@ -369,7 +369,7 @@ body {
     margin-bottom: 9px;
     margin-top: -1px;
     height: 61px;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 .subgroup-entry-info#similar-unbiased-subgroup-entry-info {
@@ -451,11 +451,11 @@ body {
 }
 
 .subgroup-info-summary-entry {
-    width: 49.5%;
+    width: 47%;
     display: inline-block;
     align-items: center;
     margin: 0 auto 3px auto;
-    padding: 2px 0 3px 0;
+    padding: 2px 6px 3px 2px;
 }
 
 #subgroup-info-summary-underperforming {
@@ -470,7 +470,7 @@ body {
 #confusion-matrix-underperforming-subgroup-title,
 #confusion-matrix-well-performing-subgroup-title {
     font-family: 'Roboto Condensed', sans-serif;
-    text-align: left;
+    text-align: right;
     width: 100%;
     font-size: 14px;
 }
