@@ -89,6 +89,7 @@ export const biasedSubgroupEntryClicked = (e) => {
         displayNeuronPath(selectedBiasedSubgroupInfo, similarUnbiasedSubgroupInfo, similarUnbiasedSubgroupNewIdNumber);
     });
 
+    if (e.target.tagName == "DIV") previousClickedId = clickedId;
 };
 
 function displaySubgroupInfoSummary(selectedBiasedSubgroupInfo, similarUnbiasedSubgroupInfo, biasedSubgroupNewIdNumber, similarUnbiasedSubgroupNewIdNumber) {
@@ -245,7 +246,7 @@ function displaySimilarUnbiasedSubgroup(similarUnbiasedSubgroupInfo, similarUnbi
             if (similarUnbiasedSubgroupInfo["incorrect_list"].includes(imgFileName))
                 similarUnbiasedSubgroupEntryImageDisplayDiv.setAttribute("class", "subgroup-entry-image-incorrect subgroup-entry-image-display");
 
-            similarUnbiasedSubgroupEntryImageDisplayDiv.addEventListener("click", e => imageClicked(e, imgFileName, groundTruth, pred, false, similarUnbiasedSubgroupNewIdNumber));
+            similarUnbiasedSubgroupEntryImageDisplayDiv.addEventListener("click", e => imageClicked(e, imgFileName, groundTruth, pred, false, similarUnbiasedSubgroupDiv.similarUnbiasedSubgroupIdNumber));
             similarUnbiasedSubgroupEntryImagesDiv.appendChild(similarUnbiasedSubgroupEntryImageDisplayDiv);
             similarUnbiasedSubgroupEntryImageDisplayDiv.appendChild(similarUnbiasedEntryImageDisplayImg);
         }
@@ -333,7 +334,7 @@ function removeGradcamWindowsBiasedOrUnbiased (biased) {
     })
 }
 
-export function imageClicked (e, imgFileName, groundTruth, pred, biased, groupNewIdNumber) {
+export function imageClicked (e, imgFileName, groundTruth, pred, biased, groupIdNumber) {
     if (clicked && previousClickedId == clickedId) {
         let imgNumber = imgFileName.split(".")[0]
         let gradcamImageFileName = imgNumber + "_gradcam.jpg";
@@ -367,7 +368,7 @@ export function imageClicked (e, imgFileName, groundTruth, pred, biased, groupNe
 
         let groupNewIdNumberDiv = document.createElement("div");
         groupNewIdNumberDiv.setAttribute("class", "gradcam-window-group-number");
-        groupNewIdNumberDiv.innerText = biased?"Underperforming Subgroup #"+String(groupNewIdNumber):"Well-performing Similar Subgroup";
+        groupNewIdNumberDiv.innerText = biased?"Underperforming Subgroup #"+String(groupIdNumber):"Well-performing Similar Subgroup #"+String(groupIdNumber);
         selectedImageHoveredWindowDiv.appendChild(groupNewIdNumberDiv);
 
         let originalImageDiv = document.createElement("div");
@@ -402,7 +403,7 @@ export function imageClicked (e, imgFileName, groundTruth, pred, biased, groupNe
         let predValueDiv = document.createElement("div");
         groundTruthTitleDiv.innerText = "Ground Truth:";
         groundTruthValueDiv.innerText = groundTruth;
-        predTitleDiv.innerText = "Prediction";
+        predTitleDiv.innerText = "Prediction:";
         predValueDiv.innerText = pred;
         groundTruthDiv.setAttribute("id", "selected-image-clicked-ground-truth");
         groundTruthTitleDiv.setAttribute("id", "selected-image-clicked-ground-truth-title");
@@ -511,7 +512,7 @@ export function displayNeuronPath(selectedBiasedSubgroupInfo, similarUnbiasedSub
     let layers = LAYERS.reverse();
     layers.selectedBiasedSubgroupInfo = selectedBiasedSubgroupInfo;
     layers.selectedUnbiasedSubgroupInfo = similarUnbiasedSubgroupInfo;
-    layers.forEach(displayNeuronForEachLayer);
+    layers.forEach((layer, idx, layers) => displayNeuronForEachLayer(layer, idx, layers, newIdNumber, unbiasedSubgroupNewIdNumber));
     LAYERS.reverse();
 
     getNeuronClusters().then(clusters => {
@@ -527,7 +528,7 @@ export function displayNeuronPath(selectedBiasedSubgroupInfo, similarUnbiasedSub
     });
 }
 
-function displayNeuronForEachLayer(layer, idx, layers) {
+function displayNeuronForEachLayer(layer, idx, layers, biasedSubgroupIdNumber, unbiasedSubgroupIdNumber) {
     let neuronPathDiv = document.getElementById("neuron-path");
 
     let neuronsThisLayerDiv = document.createElement("div");
@@ -601,12 +602,12 @@ function displayNeuronForEachLayer(layer, idx, layers) {
         }
     });
 
-    displayImportantNeurons(biasedNeuronIndices, biasedNeuronImportanceScores, "neuron-path-biased-neurons-layer-"+layer, "biased", layer);
-    displayImportantNeurons(bothNeuronIndices, bothNeuronImportanceScores, "neuron-path-both-neurons-layer-"+layer, "both", layer);
-    displayImportantNeurons(unbiasedNeuronIndices, unbiasedNeuronImportanceScores, "neuron-path-unbiased-neurons-layer-"+layer, "unbiased", layer);
+    displayImportantNeurons(biasedNeuronIndices, biasedNeuronImportanceScores, "neuron-path-biased-neurons-layer-"+layer, "biased", layer, biasedSubgroupIdNumber, unbiasedSubgroupIdNumber);
+    displayImportantNeurons(bothNeuronIndices, bothNeuronImportanceScores, "neuron-path-both-neurons-layer-"+layer, "both", layer, biasedSubgroupIdNumber, unbiasedSubgroupIdNumber);
+    displayImportantNeurons(unbiasedNeuronIndices, unbiasedNeuronImportanceScores, "neuron-path-unbiased-neurons-layer-"+layer, "unbiased", layer, biasedSubgroupIdNumber, unbiasedSubgroupIdNumber);
 }
 
-function displayImportantNeurons(neuronIndices, importanceScores, domId, column, layer) {
+function displayImportantNeurons(neuronIndices, importanceScores, domId, column, layer, biasedSubgroupIdNumber, unbiasedSubgroupIdNumber) {
     let neuronsDiv = d3.select("#"+domId);
     let color;
     if (column == "biased") color = UNDERPERFORMING_COLOR;
@@ -668,7 +669,7 @@ function displayImportantNeurons(neuronIndices, importanceScores, domId, column,
                 .attr("id", (_,i) => `neuron-${layer}-${i}`)
                 .attr("class", (d) => `neuron-circle neuron-${column} neuron-${layer}-${d}`)
                 .each((d, i) => {importanceScoresObj[d] = importanceScores[i];})
-                .on("click", (e, d) => displayNeuronConcept(e, layer, d, importanceScoresObj[d]))
+                .on("click", (e, d) => displayNeuronConcept(e, layer, d, importanceScoresObj[d], biasedSubgroupIdNumber, unbiasedSubgroupIdNumber))
                 .on("mouseover", e => neuronNodeHovered(e, color))
                 .on("mouseleave", e => neuronNodeMouseLeave(e, color));
     }
@@ -735,7 +736,7 @@ export function removeNeuronConceptWindows () {
     })
 }
 
-function displayNeuronConcept(e, layer, neuronId, importanceScores) {
+function displayNeuronConcept(e, layer, neuronId, importanceScores, biasedSubgroupIdNumber, unbiasedSubgroupIdNumber) {
     let createFlag = true;
     windowStack.forEach(d => {
         if (d[0] == "neuron-concept-window-"+layer+"-"+String(neuronId)) createFlag = false;
@@ -743,7 +744,6 @@ function displayNeuronConcept(e, layer, neuronId, importanceScores) {
     if (!createFlag) return;
 
     let neuronConceptWindow;
-    let similarUnbiasedSubgroupDiv = document.getElementById("similar-unbiased-subgroup");
 
     let cursorX = e.pageX;
     let cursorY = e.pageY;
@@ -778,13 +778,17 @@ function displayNeuronConcept(e, layer, neuronId, importanceScores) {
             neuronConceptWindow.appendChild(neuronConceptPatchesDiv);
 
             let neuronConceptImportanceScoreTitleDiv = document.createElement("div");
+            let neuronConceptImportanceScoreBySubgroupDiv = document.createElement("div");
             let neuronConceptImportanceScoreBiasedDiv = document.createElement("div");
             let neuronConceptImportanceScoreUnbiasedDiv = document.createElement("div");
             neuronConceptImportanceScoreTitleDiv.setAttribute("class", "neuron-concept-importance-score-title");
             neuronConceptImportanceScoreTitleDiv.innerText = "Importance Score";
+            neuronConceptImportanceScoreBySubgroupDiv.setAttribute("class", "neuron-concept-importance-score-by-subgroup");
+            neuronConceptImportanceScoreBySubgroupDiv.innerText = "for Subgroups";
             neuronConceptImportanceScoreBiasedDiv.setAttribute("class", "neuron-concept-importance-score-biased");
             neuronConceptImportanceScoreUnbiasedDiv.setAttribute("class", "neuron-concept-importance-score-unbiased");
             neuronConceptImportanceScoreDiv.appendChild(neuronConceptImportanceScoreTitleDiv);
+            neuronConceptImportanceScoreDiv.appendChild(neuronConceptImportanceScoreBySubgroupDiv);
             neuronConceptImportanceScoreDiv.appendChild(neuronConceptImportanceScoreBiasedDiv);
             neuronConceptImportanceScoreDiv.appendChild(neuronConceptImportanceScoreUnbiasedDiv);
 
@@ -792,11 +796,11 @@ function displayNeuronConcept(e, layer, neuronId, importanceScores) {
             let neuronConceptImportanceScoreBiasedValueDiv = document.createElement("div");
             let neuronConceptImportanceScoreUnbiasedTitleDiv = document.createElement("div");
             let neuronConceptImportanceScoreUnbiasedValueDiv = document.createElement("div");
-            neuronConceptImportanceScoreBiasedTitleDiv.innerText = "- Underperforming: ";
+            neuronConceptImportanceScoreBiasedTitleDiv.innerText = `- Underperforming (#${biasedSubgroupIdNumber}): `;
             neuronConceptImportanceScoreBiasedTitleDiv.setAttribute("class", "neuron-concept-importance-score-biased-title");
             neuronConceptImportanceScoreBiasedValueDiv.innerText = String(Math.round(importanceScores[0] * 100) / 100);
             neuronConceptImportanceScoreBiasedValueDiv.setAttribute("class", "neuron-concept-importance-score-biased-value");
-            neuronConceptImportanceScoreUnbiasedTitleDiv.innerText = "- Well-performing: ";
+            neuronConceptImportanceScoreUnbiasedTitleDiv.innerText = `- Well-performing (#${unbiasedSubgroupIdNumber}): `;
             neuronConceptImportanceScoreUnbiasedTitleDiv.setAttribute("class", "neuron-concept-importance-score-unbiased-title");
             neuronConceptImportanceScoreUnbiasedValueDiv.innerText = String(Math.round(importanceScores[1] * 100) / 100);
             neuronConceptImportanceScoreUnbiasedValueDiv.setAttribute("class", "neuron-concept-importance-score-unbiased-value");

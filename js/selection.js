@@ -174,6 +174,14 @@ getBiasedSubgroupData().then(
         similarUnbiasedSubgroupsListDiv.appendChild(similarUnbiasedSubgroupEntryDiv);
     }
 )
+.then(
+    d => {
+        let defaultClickedEntry = new Object();
+        defaultClickedEntry.currentTarget = document.getElementById("biased-subgroup-421");
+        defaultClickedEntry.target = document.getElementById("biased-subgroup-421");
+        biasedSubgroupEntryClicked(defaultClickedEntry);
+    }
+)
 
 let subgroupInfoSummaryTitleDiv = document.createElement("div");
 subgroupInfoSummaryTitleDiv.innerText = "Confusion Matrix"
