@@ -782,7 +782,7 @@ function displayNeuronConcept(e, layer, neuronId, importanceScores, biasedSubgro
             let neuronConceptImportanceScoreBiasedDiv = document.createElement("div");
             let neuronConceptImportanceScoreUnbiasedDiv = document.createElement("div");
             neuronConceptImportanceScoreTitleDiv.setAttribute("class", "neuron-concept-importance-score-title");
-            neuronConceptImportanceScoreTitleDiv.innerText = "Importance Score";
+            neuronConceptImportanceScoreTitleDiv.innerText = "Activation Score";
             neuronConceptImportanceScoreBySubgroupDiv.setAttribute("class", "neuron-concept-importance-score-by-subgroup");
             neuronConceptImportanceScoreBySubgroupDiv.innerText = "for Subgroups";
             neuronConceptImportanceScoreBiasedDiv.setAttribute("class", "neuron-concept-importance-score-biased");

@@ -87,7 +87,7 @@ settingThresholdSliderDiv.appendChild(settingThresholdSliderMaxValue);
 
 let settingThresholdTitleDiv = document.createElement("div");
 let settingThresholdValueDiv = document.createElement("div");
-settingThresholdTitleDiv.innerText = "Importance Threshold";
+settingThresholdTitleDiv.innerText = "Activation Score Threshold";
 settingThresholdValueDiv.innerText = String(settingThresholdSliderInput.value/10);
 settingThresholdTitleDiv.setAttribute("id", "setting-threshold-title-text");
 settingThresholdValueDiv.setAttribute("id", "setting-threshold-value");
