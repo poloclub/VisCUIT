@@ -795,11 +795,11 @@ td.confusion-matrix-2-2 {
 }
 
 .neuron-concept-window-x {
-    width: 30px;
-    height: 30px;
+    width: 10px;
+    height: 10px;
     position: absolute;
-    right: 0;
-    top: 0;
+    right: 9px;
+    top: 3px;
     background-color: white;
     cursor: pointer;
 }

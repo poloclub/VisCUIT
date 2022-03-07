@@ -857,19 +857,19 @@ function displayNeuronConcept(e, layer, neuronId, importanceScores, biasedSubgro
             neuronConceptWindow.appendChild(neuronConceptWindowXDiv);
 
             neuronConceptWindowXDiv = d3.select("#neuron-concept-window-x-"+layer+"-"+String(neuronId));
-            let neuronConceptWindowXSvg = neuronConceptWindowXDiv.append("svg").attr("height", "30").attr("width", "30");
+            let neuronConceptWindowXSvg = neuronConceptWindowXDiv.append("svg").attr("height", "10").attr("width", "10");
+            neuronConceptWindowXSvg.append("line")
+                .attr("class", "neuron-concept-window-x-line")
+                .attr("x1", "0")
+                .attr("y1", "0")
+                .attr("x2", "10")
+                .attr("y2", "10");
             neuronConceptWindowXSvg.append("line")
                 .attr("class", "neuron-concept-window-x-line")
                 .attr("x1", "10")
-                .attr("y1", "10")
-                .attr("x2", "20")
-                .attr("y2", "20");
-            neuronConceptWindowXSvg.append("line")
-                .attr("class", "neuron-concept-window-x-line")
-                .attr("x1", "20")
-                .attr("y1", "10")
-                .attr("x2", "10")
-                .attr("y2", "20");
+                .attr("y1", "0")
+                .attr("x2", "0")
+                .attr("y2", "10");
         }
     )
 
