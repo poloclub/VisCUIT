@@ -105,7 +105,7 @@ linkContainer.appendChild(headerIconImg);
 iconDiv.appendChild(linkContainer);
 
 linkContainer = document.createElement("a");
-linkContainer.setAttribute("href", "https://github.com/poloclub/VisCUIT");
+linkContainer.setAttribute("href", "https://youtu.be/eNDbSyM4R_4");
 headerIconImg = document.createElement("img");
 headerIconImg.setAttribute("src", "assets/logo/youtube-brands.svg");
 linkContainer.appendChild(headerIconImg);

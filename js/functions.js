@@ -52,7 +52,7 @@ export const biasedSubgroupEntryClicked = (e) => {
         .style("bottom", "0")
         .style("z-index", "10")
         .style("cursor", "auto")
-        .select(".subgroup-entry-info")
+        .select(".subgroup-entry-accuracy-value")
             .style("color", "#202020");
 
     d3.select(`#biased-subgroup-${clickedId}`)
