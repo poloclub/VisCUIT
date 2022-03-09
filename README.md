@@ -3,7 +3,7 @@
 An interactive visualization system 
 that reveals how and why a CNN classifier is biased
 
-<a href="https://youtu.be/eNDbSyM4R_4" target="_blank"><img src="https://img.youtube.com/vi/eNDbSyM4R_4/mqdefault.jpg" style="width: 100%"></a>
+<a href="https://youtu.be/eNDbSyM4R_4" target="_blank"><img src="assets/logo/thumbnail.png" style="width: 100%"></a>
 
 
 <!-- [![VisCUIT Demo Vieo](http://img.youtube.com/vi/eNDbSyM4R_4/0.jpg)](https://www.youtube.com/watch?v=eNDbSyM4R_4 "VisCUIT: Visual Auditor for Bias in CNN Image Classifier") -->
