@@ -33,27 +33,86 @@
         </div>
 
         <div class="description">
-            <h2>What is VisCuit?</h2>
+            <h2>
+                What is 
+                <span class="viscuit-name" style="margin-right: -6px;">
+                    <img src="assets/logo/viscuit.svg" class="viscuit-logo-icon" alt="VisCUIT-logo">
+                    V<span class="viscuit-name-is">IS</span>CUIT
+                </span>
+                ?
+            </h2>
             <p>
-                Even though CNN image classifiers have shown their superiority
-                in efficiency and accuracy, biases impede the practical
-                applications of the classifiers. However, most existing bias
-                investigation techniques are either inapplicable to general
-                image classification tasks or require a lot of additional
-                efforts to understand. VisCuit is an interactive visualization
-                system that reveals how and why a CNN classifier is biased.
-                VisCuit visually summarizes on which subgroups the classifier
-                underperforms and explains the cause of the low performances by
-                investigating neuron activations while processing the subgroups.
-                Using VisCuit, users can characterize the biases present in the
-                CNN classifier and identify the cause of the biases. As VisCuit
-                is web-based and <a
-                href="https://github.com/poloclub/VisCUIT">open-source</a>,
-                users can easily access and extend the tool to other model
-                architectures and datasets.
+                CNN image classifiers often suffer from biases 
+                that impede their practical applications.
+                Most existing bias investigation techniques are either 
+                inapplicable to general image classification tasks or 
+                require significant user efforts in perusing all data subgroups 
+                to manually specify which data attributes to inspect.
+            </p>
+            <p>
+                We present <span class="viscuit-name">V<span class="viscuit-name-is">IS</span>CUIT</span>, 
+                an interactive visualization system 
+                that reveals how and why a CNN classifier is biased.
             </p>
 
-            <h2>Who Developed VisCuit?</h2>
+            <h2>
+                Interactive Features
+            </h2>
+            <ol>
+                <li>
+                    <span class="interactive-features-title">Select an underperforming image subgroup to explore</span>
+                    by clicking an underperforming subgroup from the list.
+                    Then, the well-performing subgroup which is the most similar with the selected underperforming subgroup,
+                    confusion matrices of the two subgroups,
+                    and neuron activations
+                    are displayed.
+                </li>
+                <li>
+                    <span class="interactive-features-title">Grad-CAM window</span>
+                    is displayed when an image in the selected underperforming or its similar well-performing subgroup
+                    is clicked.
+                    You can close the window by using X button in the window or ESC key.
+                </li>
+                <li>
+                    <span class="interactive-features-title">Adjust neuron activation score threshold</span>
+                    by using the slider in the header.
+                </li>
+                <li>
+                    <span class="interactive-features-title">Highlight the neurons for similar concepts</span>
+                    by hovering over a neuron.
+                </li>
+                <li>
+                    <span class="interactive-features-title">Neuron Concept Window for each neuron</span>
+                    is displayed when a neuron is clicked.
+                    It shows the neuron's activation score and the concept patches that activate the neuron the most.
+                </li>
+            </ol>
+
+            <h2>Video Tutorial</h2>
+            <iframe width="938" height="528" src="https://www.youtube.com/embed/eNDbSyM4R_4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+            <h2>
+                How is
+                <span class="viscuit-name">
+                    V<span class="viscuit-name-is">IS</span>CUIT
+                </span>
+                implemented?
+            </h2>
+            <p>
+                We implemented 
+                <span class="viscuit-name">
+                    V<span class="viscuit-name-is">IS</span>CUIT
+                </span>
+                using the standard HTML/CSS/JavaScript web technology stack
+                and the D3.js visualization library.
+                CNN model training and inference are all implemented using PyTorch.
+            </p>
+
+            <h2>Who Developed 
+                <span class="viscuit-name">
+                    V<span class="viscuit-name-is">IS</span>CUIT
+                </span>
+                ?</h2>
             <p>
                 Led by <a href="https://ligi214.github.io/">Seongmin Lee</a>,
                 VisCuit is created by Machine Learning and Human-computer
@@ -73,12 +132,14 @@
                 or contact <a href="https://ligi214.github.io/">Seongmin
                     Lee</a>.
 
-                We’d love to hear your experience with VisCuit! If you’d like to
-                share (e.g., why you use VisCuit, what features you find most
-                helpful), please reach out to us. VisCuit is an <a
-                    href="https://github.com/poloclub/VisCUIT">open-source</a>
-                project, and we welcome <a href="https://github.com/poloclub/VisCUIT/pulls">pull
-                    requests</a>
+                We’d love to hear your experience with <span class="viscuit-name">V<span class="viscuit-name-is">IS</span>CUIT</span>! 
+                If you’d like to share 
+                (e.g., why you use <span class="viscuit-name">V<span class="viscuit-name-is">IS</span>CUIT</span>, 
+                what features you find most helpful), 
+                please reach out to us. 
+                <span class="viscuit-name">V<span class="viscuit-name-is">IS</span>CUIT</span>
+                is an <a href="https://github.com/poloclub/VisCUIT">open-source</a> project, 
+                and we welcome <a href="https://github.com/poloclub/VisCUIT/pulls">pull requests</a>
                 for new feature implementations and bug fixes, etc.
             </p>
         </div>

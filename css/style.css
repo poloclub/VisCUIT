@@ -254,7 +254,7 @@ body {
 }
 
 .description h2 {
-    margin-top: 0px;
+    margin-top: 50px;
     color: hsl(0, 0%, 16.7%);
     font-size: 40px;
     font-weight: 450;
@@ -262,10 +262,41 @@ body {
     border-bottom: 1px solid hsl(216, 13.5%, 92.7%);
 }
 
+.description span.viscuit-name {
+    color:  #2d1f14;
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+}
+
+.description span.viscuit-name-is {
+    font-size: 12px;
+}
+
+.description h2 span.viscuit-name {
+    line-height: 47px;
+}
+
+.description h2 span.viscuit-name-is {
+    font-size: 28px;
+}
+
+.description h2 .viscuit-logo-icon {
+    height: 47px;
+    width: 47px;
+    position: relative;
+    bottom: -9px;
+    margin-right: -6px;
+    margin-left: 4px;
+}
+
 .description a {
     color: hsl(33.2, 39.5%, 53.3%);
     cursor: pointer;
     text-decoration: none;
+}
+
+.description .interactive-features-title {
+    font-weight: bold;
 }
 
 /* biased subgroups */

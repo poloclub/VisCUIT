@@ -1,15 +1,20 @@
 # VisCuit
 
-<!-- An interactive visualization system designed to help non-experts learn about Convolutional Neural Networks (CNNs) -->
+An interactive visualization system 
+that reveals how and why a CNN classifier is biased
 
-<!-- [![build](https://github.com/poloclub/cnn-explainer/workflows/build/badge.svg)](https://github.com/poloclub/viscuit/actions) -->
-[![license](https://img.shields.io/badge/license-MIT-blue)](https://github.com/poloclub/viscuit/blob/master/LICENSE)
+<a href="https://youtu.be/eNDbSyM4R_4" target="_blank"><img src="https://img.youtube.com/vi/eNDbSyM4R_4/mqdefault.jpg" style="width: 80%"></a>
+
+
+<!-- [![VisCUIT Demo Vieo](http://img.youtube.com/vi/eNDbSyM4R_4/0.jpg)](https://www.youtube.com/watch?v=eNDbSyM4R_4 "VisCUIT: Visual Auditor for Bias in CNN Image Classifier") -->
+
+[![license](https://img.shields.io/badge/license-MIT-blue)](https://github.com/poloclub/VisCUIT/blob/master/LICENSE)
 <!-- [![arxiv badge](https://img.shields.io/badge/arXiv-2004.15004-red)](http://arxiv.org/abs/2004.15004)
 [![DOI:10.1109/TVCG.2020.3030418](https://img.shields.io/badge/DOI-10.1109/TVCG.2020.3030418-blue)](https://doi.org/10.1109/TVCG.2020.3030418) -->
 
 ## Live Demo
 
-For a live demo, visit: <https://poloclub.github.io/viscuit/>
+For a live demo, visit: <https://poloclub.github.io/VisCUIT/>
 
 ## Running Locally
 
@@ -19,7 +24,7 @@ Clone or download this repository:
 python3 -m http.server
 ```
 
-Navigate to [localhost:8000](https://localhost:8000). You should see VisCuit running in your browser :)
+Navigate to [localhost:8000](https://localhost:8000). You should see VisCUIT running in your browser :)
 
 ## Credits
 
