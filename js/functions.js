@@ -163,7 +163,7 @@ function createConfusionMatrix(dom, info, newIdNumber, performance) {
     tdFirstRowSecondCol.setAttribute("class", "confusion-matrix-1-2");
     tdPredicted.innerText = "Prediction";
     tdSmiling.innerText = "Smiling";
-    tdFirstRowFirstCol.innerText = ss; // using the info, get the number
+    tdFirstRowFirstCol.innerText = ss; 
     tdFirstRowSecondCol.innerText = ns;
     trFirstRow.appendChild(tdPredicted);
     trFirstRow.appendChild(tdSmiling);

@@ -52,7 +52,7 @@ accuracyInfoTitleDiv.setAttribute("class", "setting-title");
 accuracyInfoContentDiv.setAttribute("id", "accuracy-info-content");
 accuracyInfoContentDiv.setAttribute("class", "setting-content");
 accuracyInfoTitleDiv.innerText = "Accuracy";
-accuracyInfoContentDiv.innerText = "92.1%";  // 18381/19961
+accuracyInfoContentDiv.innerText = "92.1%";  
 accuracyInfoDiv.appendChild(accuracyInfoTitleDiv);
 accuracyInfoDiv.appendChild(accuracyInfoContentDiv);
 

@@ -27,7 +27,6 @@ biasedSubgroupsListsDiv.setAttribute("class", "biased-element");
 biasedSubgroupsDiv.appendChild(biasedSubgroupsListsDiv);
 biasedSubgroupsListsDiv.addEventListener("scroll", removeGradcamWindows);
 
-
 // Generate divs as many as the biased subgroups
 import {getBiasedSubgroupData} from "./data.js";
 

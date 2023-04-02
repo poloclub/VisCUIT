@@ -51,10 +51,7 @@ body {
     height: 723px;
 }
 
-
-
 /* header */
-
 #header-icon {
     width: 56px;
     height: 56px;
@@ -501,7 +498,6 @@ body {
 
 
 /* subgroup info summary */
-
 #subgroup-info-summary-title {
     color: #404040;
 }
@@ -575,7 +571,6 @@ th {
 }
 
 td.confusion-matrix-predicted {
-    /* writing-mode: vertical-rl; */
     transform: rotate(270deg);
     width: 19px;
 }
@@ -629,8 +624,6 @@ td.confusion-matrix-2-2 {
     border-left: #ECEDDC 1px solid;
     border-collapse: collapse;
 }
-
-
 
 /* Neuron Path */
 #neuron-path-header {
